@@ -15,6 +15,11 @@ class Book(BaseModel):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     description = models.TextField()
 
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Kitob'
+        verbose_name_plural = 'Kitoblar'
+
     def __str__(self):
         return self.title
 
@@ -22,5 +27,8 @@ class BookImage(BaseModel):
     book = models.ForeignKey('Book', on_delete=models.CASCADE, related_name='book_images')
     image = models.ImageField(upload_to='book_images/')
 
+    class Meta:
+        verbose_name = 'Kitob rasmi'
+        verbose_name_plural = 'Kitob rasmlari'
     def __str__(self):
         return self.book.title

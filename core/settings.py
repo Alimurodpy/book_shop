@@ -153,7 +153,7 @@ from datetime import timedelta
 
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(hours=2),  # Access token uchun amal qilish muddati
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=10),  # Access token uchun amal qilish muddati
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),     # Refresh token uchun amal qilish muddati
     'ROTATE_REFRESH_TOKENS': False,                   # Refresh tokenni faqat bitta qayta ishlash
     'BLACKLIST_AFTER_ROTATION': True,                  # Token yangilangandan so'ng eskilarni blacklistga qo'shish
