@@ -16,8 +16,11 @@ class RatingAdmin(admin.TabularInline):
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'price', 'category')
+    list_display = ('title', 'author', 'price', 'quantity', 'category')
     search_fields = ('id', 'title', 'author')
+    list_filter = ('category', 'created_at')
+    list_per_page = 10
+    ordering = ('created_at',)
     inlines = [ImageAdmin, ReviewAdmin, RatingAdmin]
 
 @admin.register(Category)

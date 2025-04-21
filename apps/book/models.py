@@ -1,6 +1,5 @@
 from django.db import models
 from apps.base.models import BaseModel
-from django.contrib.auth.models import User
 
 class Category(BaseModel):
     name = models.CharField(max_length=100)
@@ -12,8 +11,11 @@ class Book(BaseModel):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    quantity = models.PositiveIntegerField(default=0)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     description = models.TextField()
+
+
 
     class Meta:
         ordering = ['-created_at']
